@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Current Assets</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .asset-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .asset-info {
+            flex-grow: 1;
+        }
+        .asset-buttons {
+            margin-left: 10px;
+        }
+        .asset-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Other Current Assets</h2>
+            <form id="other-assets-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="other-assets-container">
+                    <div class="question-group">
+                        <label for="other-asset-name">Other Current Asset Name</label>
+                        <input type="text" id="other-asset-name" name="other-asset-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="other-asset-value">Other Current Asset Value</label>
+                        <input type="text" id="other-asset-value" name="other-asset-value">
+                    </div>
+                    <div class="question-group">
+                        <label for="other-asset-notes">Notes</label>
+                        <textarea id="other-asset-notes" name="other-asset-notes"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addOtherAsset()">Add</button>
+                <button type="button" onclick="saveOtherAssetsData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Other Current Assets</h3>
+                <div id="saved-other-assets-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="other.js"></script>
+</body>
+</html>

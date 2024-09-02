@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Fixed Assets</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .asset-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .asset-info {
+            flex-grow: 1;
+        }
+        .asset-buttons {
+            margin-left: 10px;
+        }
+        .asset-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+        #add-field-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Other Fixed Assets</h2>
+            <form id="assets-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="assets-container">
+                    <div class="question-group">
+                        <label for="asset-name">Asset Name</label>
+                        <input type="text" id="asset-name" name="asset-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="asset-description">Asset Description</label>
+                        <textarea id="asset-description" name="asset-description"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="purchase-cost">Purchase Cost</label>
+                        <input type="text" id="purchase-cost" name="purchase-cost">
+                    </div>
+                    <div class="question-group">
+                        <label for="purchase-date">Purchase Month/Year</label>
+                        <input type="text" id="purchase-date" name="purchase-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="depreciated-value">Estimated Depreciated Value</label>
+                        <input type="text" id="depreciated-value" name="depreciated-value">
+                    </div>
+                    <div class="question-group">
+                        <label for="depreciated-value-date">Estimated Depreciated Value Date</label>
+                        <input type="date" id="depreciated-value-date" name="depreciated-value-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" name="notes"></textarea>
+                    </div>
+                    <div id="additional-fields-container"></div>
+                    <div>
+                        <button type="button" id="add-field-button" onclick="addNewField()">Add Field</button>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addAsset()">Add</button>
+                <button type="button" onclick="saveAssetsData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Assets</h3>
+                <div id="saved-assets-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="other-fixed-assets.js"></script>
+</body>
+</html>

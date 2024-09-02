@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management Objectives</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .objective-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .objective-info {
+            flex-grow: 1;
+        }
+        .objective-buttons {
+            margin-left: 10px;
+        }
+        .objective-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Risk Management Objectives</h2>
+            <form id="objectives-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="objectives-container">
+                    <div class="question-group">
+                        <label for="objective-description">Objective Description</label>
+                        <textarea id="objective-description" name="objective-description"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="objective-type">Objective Type</label>
+                        <select id="objective-type" name="objective-type">
+                            <option value="short-term">Short-term</option>
+                            <option value="long-term">Long-term</option>
+                            <option value="measurable">Measurable</option>
+                            <option value="agreement">Agreement with Leaders</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholders">Involved Stakeholders</label>
+                        <textarea id="stakeholders" name="stakeholders"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="review-frequency">Review Frequency</label>
+                        <select id="review-frequency" name="review-frequency">
+                            <option value="yearly">Yearly</option>
+                            <option value="twice-yearly">Twice a Year</option>
+                            <option value="three-months">Every Three Months</option>
+                            <option value="as-needed">As Needed</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="integration-planning">Integration with Planning</label>
+                        <textarea id="integration-planning" name="integration-planning"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="performance-measures">Performance Measures</label>
+                        <textarea id="performance-measures" name="performance-measures"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="current-status">Current Status</label>
+                        <select id="current-status" name="current-status">
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <input type="date" id="status-date" name="status-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="responsible-person">Responsible Person or Team</label>
+                        <textarea id="responsible-person" name="responsible-person"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="related-policies">Related Policies and Procedures</label>
+                        <textarea id="related-policies" name="related-policies"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="relevant-standards">Relevant Standards and Guidelines</label>
+                        <textarea id="relevant-standards" name="relevant-standards"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="leadership-review">Leadership Review and Approval</label>
+                        <textarea id="leadership-review" name="leadership-review"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="additional-notes">Additional Notes and Comments</label>
+                        <textarea id="additional-notes" name="additional-notes"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addObjective()">Add</button>
+                <button type="button" onclick="saveObjectivesData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Objectives</h3>
+                <div id="saved-objectives-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="risk-management-objectives.js"></script>
+</body>
+</html>

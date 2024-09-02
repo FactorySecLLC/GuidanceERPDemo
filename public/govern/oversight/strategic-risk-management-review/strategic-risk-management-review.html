@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Risk Management Review</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            font-weight: bold;
+        }
+        .question-group textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Strategic Risk Management Review</h2>
+            <form id="strategic-risk-management-review-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <!-- Updated Questions -->
+                    <div class="question-group">
+                        <label for="q1">Have recent audits identified any gaps in the current cybersecurity strategy?</label>
+                        <textarea id="q1" name="q1"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="q2">Has the performance of cybersecurity roles been adequate in implementing the strategy?</label>
+                        <textarea id="q2" name="q2"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="q3">Were there any significant cybersecurity incidents that revealed weaknesses in the current strategy?</label>
+                        <textarea id="q3" name="q3"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="q4">What specific changes are recommended based on these reviews?</label>
+                        <textarea id="q4" name="q4"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="saveStrategicRiskManagementData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Strategic Risk Management Reviews</h3>
+                <div id="saved-review-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="strategic-risk-management-review.js"></script>
+</body>
+</html>

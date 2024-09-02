@@ -1,0 +1,253 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #34495e;
+    color: white;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.nav-item {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #2c3e50;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.nav-item:hover {
+    background-color: #1abc9c;
+}
+
+.sub-nav {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none;
+}
+
+.sub-nav li {
+    padding: 5px 0;
+    cursor: pointer;
+    background-color: #34495e;
+    border-radius: 5px;
+    margin: 3px 0;
+}
+
+.sub-nav li:hover {
+    background-color: #1abc9c;
+}
+
+.content {
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+textarea,
+input {
+    margin-top: 5px;
+    padding: 10px;
+    resize: vertical;
+    min-height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.saved-data {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.saved-data label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+textarea[readonly] {
+    background-color: #f4f4f9;
+}
+
+.multi-input-container {
+    margin-bottom: 20px;
+}
+
+.add-button,
+.delete-button,
+.remove-button,
+.save-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-button:hover,
+.delete-button:hover,
+.remove-button:hover,
+.save-button:hover {
+    background-color: #2980b9;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.remove-button {
+    background-color: #e74c3c;
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+
+.question-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.multi-input-group {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .nav-item,
+    .sub-nav li {
+        text-align: center;
+    }
+}
+
+.question-link {
+    font-size: 18px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.question-link:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Mission</title>
+    <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Organizational Mission</h2>
+            <form id="section-form">
+                <div class="question-group">
+                    <label for="organizational-mission">Organizational Mission</label>
+                    <textarea id="organizational-mission" name="organizational-mission"></textarea>
+                </div>
+                <button type="button" onclick="saveMissionData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <label for="saved-mission">Mission</label>
+                <div id="saved-mission-text" class="saved-mission-text"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="organizational-mission.js"></script>
+</body>
+</html>

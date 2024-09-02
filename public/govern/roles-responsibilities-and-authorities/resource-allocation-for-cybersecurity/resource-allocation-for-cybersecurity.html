@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Allocation for Cybersecurity</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            font-weight: bold;
+        }
+        .question-group textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Resource Allocation for Cybersecurity</h2>
+            <form id="resource-allocation-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <!-- Questions -->
+                    <div class="question-group">
+                        <label for="review-meetings">Do you have regular meetings to review how cybersecurity is being handled in your factory?</label>
+                        <textarea id="review-meetings" name="review-meetings"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="authority-checks">Do you check if the people responsible for cybersecurity have the authority to do their job effectively?</label>
+                        <textarea id="authority-checks" name="authority-checks"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="risk-resources">Have you identified the resources needed for cybersecurity based on how much risk your factory can handle?</label>
+                        <textarea id="risk-resources" name="risk-resources"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="budget-allocation">Do you allocate money and other resources to cybersecurity according to these risk assessments?</label>
+                        <textarea id="budget-allocation" name="budget-allocation"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="support-people">Do you make sure there are enough people, processes, and tools to support your factory's cybersecurity needs?</label>
+                        <textarea id="support-people" name="support-people"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="technical-investments">Can you provide examples of the technical resources you have invested in for cybersecurity?</label>
+                        <textarea id="technical-investments" name="technical-investments"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="saveResourceAllocationData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Resource Allocations</h3>
+                <div id="saved-allocations-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="resource-allocation-for-cybersecurity.js"></script>
+</body>
+</html>

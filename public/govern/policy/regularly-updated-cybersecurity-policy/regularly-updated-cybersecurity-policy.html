@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regularly Updated Cybersecurity Policy</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            font-weight: bold;
+        }
+        .question-group textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Regularly Updated Cybersecurity Policy</h2>
+            <form id="cybersecurity-policy-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <!-- Periodic Policy Reviews -->
+                    <h3>Periodic Policy Reviews</h3>
+                    <div class="question-group">
+                        <label for="check-update-frequency">How often do you check and update your cybersecurity policies to make sure they are still effective?</label>
+                        <textarea id="check-update-frequency" name="check-update-frequency"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="review-process-description">Can you describe how you review the cybersecurity policy to ensure it keeps risks at an acceptable level?</label>
+                        <textarea id="review-process-description" name="review-process-description"></textarea>
+                    </div>
+                    <!-- Review Timeline and Communication -->
+                    <h3>Review Timeline and Communication</h3>
+                    <div class="question-group">
+                        <label for="review-schedule">Do you have a schedule or timeline for reviewing changes in your factory's risk environment or mission?</label>
+                        <textarea id="review-schedule" name="review-schedule"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="communication-changes">How do you let your employees know about any important changes or updates to the cybersecurity policy?</label>
+                        <textarea id="communication-changes" name="communication-changes"></textarea>
+                    </div>
+                    <!-- Legal and Regulatory Updates -->
+                    <h3>Legal and Regulatory Updates</h3>
+                    <div class="question-group">
+                        <label for="legal-updates">How do you make sure your cybersecurity policy stays up to date with any new laws or regulations?</label>
+                        <textarea id="legal-updates" name="legal-updates"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="update-process-legal">Can you explain the process you follow to update the policy when there are changes in legal requirements?</label>
+                        <textarea id="update-process-legal" name="update-process-legal"></textarea>
+                    </div>
+                    <!-- Technology and Business Changes -->
+                    <h3>Technology and Business Changes</h3>
+                    <div class="question-group">
+                        <label for="tech-business-updates">How do you update your cybersecurity policy to reflect new technologies, like adopting artificial intelligence, or business changes, like acquiring a new business or entering into new contracts?</label>
+                        <textarea id="tech-business-updates" name="tech-business-updates"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="process-changes">Can you give an example of a recent update made due to a technological or business change?</label>
+                        <textarea id="process-changes" name="process-changes"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="saveCybersecurityPolicyData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Cybersecurity Policies</h3>
+                <div id="saved-policy-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="regularly-updated-cybersecurity-policy.js"></script>
+</body>
+</html>

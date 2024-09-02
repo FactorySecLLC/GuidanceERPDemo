@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Risk Management Activities and Outcomes</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question-group input, .question-group textarea, .question-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .saved-data {
+            margin-top: 20px;
+        }
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-info {
+            flex-grow: 1;
+        }
+        .item-buttons {
+            margin-left: 10px;
+        }
+        .item-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h1>Cybersecurity Risk Management Activities and Outcomes</h1>
+            <div id="editing-indicator" class="editing-indicator"></div>
+            <form id="cybersecurity-risk-management-form">
+                <div class="question-group">
+                    <label for="overview">Overview of Cybersecurity Efforts</label>
+                    <textarea id="overview" name="overview" placeholder="For example, we use antivirus software, train employees on security, and keep software updated."></textarea>
+                </div>
+                <div class="question-group">
+                    <label for="business-areas">Areas of Business Affected by Cybersecurity</label>
+                    <input type="text" id="business-areas" name="business-areas" placeholder="For example, financial records, customer information, production processes.">
+                </div>
+                <div class="question-group">
+                    <label for="finding-risks">How We Find Cyber Risks</label>
+                    <textarea id="finding-risks" name="finding-risks" placeholder="For example, regular checks of computer systems, employee reports of suspicious activity."></textarea>
+                </div>
+                <div class="question-group">
+                    <label for="key-people">Key People Involved in Security</label>
+                    <textarea id="key-people" name="key-people" placeholder="For example, IT manager, operations manager, security officer."></textarea>
+                </div>
+                <div class="question-group">
+                    <label for="handling-risks">How We Handle and Report Cyber Risks</label>
+                    <textarea id="handling-risks" name="handling-risks" placeholder="For example, fixing issues immediately, notifying management if there's a serious threat."></textarea>
+                </div>
+                <div class="question-group">
+                    <label for="compliance">Meeting Legal and Industry Standards</label>
+                    <textarea id="compliance" name="compliance" placeholder="For example, GDPR for data protection, ISO standards for manufacturing."></textarea>
+                </div>
+                <div class="question-group">
+                    <label for="documenting">Keeping Records of Security Practices</label>
+                    <textarea id="documenting" name="documenting" placeholder="For example, keeping logs of security checks, reviewing policies every year."></textarea>
+                </div>
+                <div class="question-group">
+                    <label for="resources">Where to Get Help with Security</label>
+                    <textarea id="resources" name="resources" placeholder="For example, cybersecurity consultants, online resources, government guidelines."></textarea>
+                </div>
+                <button type="button" onclick="saveEntries()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Entries</h3>
+                <div id="saved-entries-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="cybersecurity-risk-management-activities-and-outcomes.js"></script>
+</body>
+</html>

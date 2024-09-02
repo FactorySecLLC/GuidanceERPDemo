@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Due Diligence</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .vendor-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .vendor-buttons {
+            margin-top: 10px;
+        }
+        .question-group {
+            margin: 10px 0;
+        }
+        .high-criticality-group {
+            display: none;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Vendor Due Diligence</h2>
+            <div id="due-diligence-container">
+                <!-- Vendor due diligence sections will be dynamically added here -->
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="due-diligence.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts Receivable</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .asset-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .asset-info {
+            flex-grow: 1;
+        }
+        .asset-buttons {
+            margin-left: 10px;
+        }
+        .asset-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Accounts Receivable</h2>
+            <form id="receivables-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="receivables-container">
+                    <div class="question-group">
+                        <label for="amount-owed">Amount Owed</label>
+                        <input type="text" id="amount-owed" name="amount-owed">
+                    </div>
+                    <div class="question-group">
+                        <label for="expected-payment-date">Date of Expected Payment</label>
+                        <input type="date" id="expected-payment-date" name="expected-payment-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="payee-name">Payee Contact Name</label>
+                        <input type="text" id="payee-name" name="payee-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="payee-email">Payee Email Address</label>
+                        <input type="email" id="payee-email" name="payee-email">
+                    </div>
+                    <div class="question-group">
+                        <label for="payee-phone">Payee Phone Number</label>
+                        <input type="tel" id="payee-phone" name="payee-phone">
+                    </div>
+                    <div class="question-group">
+                        <label for="contract-details">Contract Details</label>
+                        <textarea id="contract-details" name="contract-details"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addReceivable()">Add</button>
+                <button type="button" onclick="saveReceivablesData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Accounts Receivable</h3>
+                <div id="saved-receivables-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="accounts-receivable.js"></script>
+</body>
+</html>

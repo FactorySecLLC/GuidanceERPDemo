@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Diagram</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+ .connector-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.connector-info {
+    flex-grow: 1;
+}
+
+.connector-buttons {
+    margin-left: 10px;
+}
+
+.connector-buttons button {
+    margin-left: 5px;
+}
+
+.editing-indicator {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.question-group {
+    display: none;
+}
+
+#diagram-container {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #000;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Shared styles for both asset-square and connector-square */
+.asset-square,
+.connector-square {
+    width: auto;
+    min-width: 100px;
+    height: 30px;
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    cursor: move;
+    z-index: 1; /* Ensure these elements are on top */
+}
+
+/* Specific styles for asset-square */
+.asset-square {
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+}
+
+/* Specific styles for connector-square */
+.connector-square {
+    background-color: transparent;
+    border: 1px dashed #000;
+}
+
+.horizontal {
+    display: inline-block;
+}
+
+.vertical {
+    transform: rotate(90deg); /* Try rotating 90 degrees instead of 180 */
+    transform-origin: 0 0; /* Align transform-origin to top-left corner */
+    height: auto;
+    min-height: 20px;
+    width: auto; /* Allow width to adjust automatically */
+    line-height: normal;
+    text-align: center;
+    display: inline-block; /* Use inline-block similar to .diagonal */
+}
+
+
+.diagonal {
+    transform: rotate(45deg);
+    display: inline-block;
+    transform-origin: 0 0; /* Adjust origin to top-left corner */
+    height: auto;
+    min-height: 20px; /* Reduce minimum height to make it less tall */
+    max-height: 100px; /* Optionally, add a max-height to constrain it further */
+    line-height: normal;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Network Diagram</h2>
+            <div id="diagram-container"></div>
+            <button onclick="saveDiagram()">Save Network Diagram</button>
+            <form id="connector-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="connector-container">
+                    <div class="question-group">
+                        <!-- The reasons I wanted custom connector type names, 
+                         instead of listing different connector types like category 6, coaxial, and so forth, 
+                         is both to help with the simplicity of the user interface, and to help accommodate different 
+                         types of connectors that either don’t exist at the time of writing that may exist in the future. 
+                         For example, the different types of waveguides that may be used to connect 2 different 
+                         things would make a predefined list of possible connectors big. -->
+                        <label for="connector-name">Network Connector Type Name</label>
+                        <input type="text" id="connector-name" name="connector-name"> (Tips: For now, add dashes to the end of the connector name here to make the representation in the network diagram longer if you want that. The network connector names here can be things such as Category 6, 8.0 GHz waveguide, and more depending on what you use for your context.)
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-asset-a">Connecting Asset A</label>
+                        <select id="connector-asset-a" name="connector-asset-a"></select>
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-asset-b">Connecting Asset B</label>
+                        <select id="connector-asset-b" name="connector-asset-b"></select>
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-serial-id">Unique Identifier or Serial Number</label>
+                        <input type="text" id="connector-serial-id" name="connector-serial-id">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-location">Physical Location</label>
+                        <input type="text" id="connector-location" name="connector-location">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-compliance">Compliance Information</label>
+                        <input type="text" id="connector-compliance" name="connector-compliance">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-lifecycle">Expected Lifecycle or Replacement Date</label>
+                        <input type="date" id="connector-lifecycle" name="connector-lifecycle">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-warranty">Warranty Information</label>
+                        <input type="text" id="connector-warranty" name="connector-warranty">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-value">Estimated Network Connector Value at Time of Purchase</label>
+                        <input type="text" id="connector-value" name="connector-value">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-purchase-date">Purchase Date</label>
+                        <input type="date" id="connector-purchase-date" name="connector-purchase-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-depreciated-value">Estimated Network Connector Depreciated Value</label>
+                        <input type="text" id="connector-depreciated-value" name="connector-depreciated-value">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-depreciated-value-date">Estimated Network Connector Depreciated Value Date</label>
+                        <input type="date" id="connector-depreciated-value-date" name="connector-depreciated-value-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="connector-orientation">Connector Orientation on Network Diagram</label>
+                        <select id="connector-orientation" name="connector-orientation">
+                            <option value="horizontal">Horizontal</option>
+                            <option value="vertical">Vertical</option>
+                            <option value="diagonal">Diagonal</option>
+                        </select>
+                    </div>    
+                    <div class="question-group">
+                        <label for="connector-notes">Notes</label>
+                        <textarea id="connector-notes" name="connector-notes"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-connector-button" onclick="addConnector()">Add Network Connector Type</button>
+                <button type="button" onclick="saveConnectors()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Network Connector Types</h3>
+                <div id="saved-connectors-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="network-diagram.js"></script>
+</body>
+</html>

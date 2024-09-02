@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Lines</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .item-info {
+            flex-grow: 1;
+        }
+        .item-buttons {
+            margin-left: 10px;
+        }
+        .item-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h1>Communication Lines</h1>
+            <h2>Executive Updates for Information Security Risks</h2>
+            <form id="executive-updates-form">
+                <div id="executive-editing-indicator" class="editing-indicator"></div>
+                <div id="executive-container">
+                    <div class="question-group">
+                        <label for="frequency-updates">Frequency of Updates</label>
+                        <input type="text" id="frequency-updates" name="frequency-updates">
+                    </div>
+                    <div class="question-group">
+                        <label for="responsible-person">Responsible Person/Role</label>
+                        <input type="text" id="responsible-person" name="responsible-person">
+                    </div>
+                    <div class="question-group">
+                        <label for="content-updates">Content of Updates</label>
+                        <textarea id="content-updates" name="content-updates"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="distribution-method">Distribution Method</label>
+                        <select id="distribution-method" name="distribution-method" onchange="showAdditionalInfo()">
+                            <option value="">Select Method</option>
+                            <option value="email">Email</option>
+                            <option value="meetings">Meetings</option>
+                            <option value="printed report">Printed Report</option>
+                        </select>
+                    </div>                        
+                    <div class="question-group" id="email-addresses-group">
+                        <label for="email-addresses">Email addresses to send the report to</label>
+                        <input type="text" id="email-addresses" name="email-addresses">
+                    </div>
+                    <div class="question-group" id="meeting-details-group">
+                        <label for="meeting-details">Additional Meeting Details</label>
+                        <input type="text" id="meeting-details" name="meeting-details">
+                    </div>
+                    <div class="question-group" id="report-delivery-group">
+                        <label for="report-delivery">Physical Report Delivery Details</label>
+                        <input type="text" id="report-delivery" name="report-delivery">
+                    </div>
+                </div>
+                <button type="button" id="add-executive-button" onclick="addExecutiveUpdate()">Add</button>
+                <button type="button" onclick="saveExecutiveUpdates()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Executive Updates</h3>
+                <div id="saved-executive-updates-list"></div>
+            </div>
+
+            <h2>Departmental Communication for Information Security Risks</h2>
+            <form id="departmental-communication-form">
+                <div id="departmental-editing-indicator" class="editing-indicator"></div>
+                <div id="departmental-container">
+                    <div class="question-group">
+                        <label for="department-name">Department Name</label>
+                        <input type="text" id="department-name" name="department-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="primary-contact-person">Primary Contact Person</label>
+                        <input type="text" id="primary-contact-person" name="primary-contact-person">
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-email">Contact Email</label>
+                        <input type="email" id="contact-email" name="contact-email">
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-phone">Contact Phone</label>
+                        <input type="text" id="contact-phone" name="contact-phone">
+                    </div>
+                    <div class="question-group">
+                        <label for="communication-frequency">Communication Frequency</label>
+                        <input type="text" id="communication-frequency" name="communication-frequency">
+                    </div>
+                    <div class="question-group">
+                        <label for="responsible-role">Responsible Role/Person</label>
+                        <input type="text" id="responsible-role" name="responsible-role">
+                    </div>
+                    <div class="question-group">
+                        <label for="communication-methods">Communication Methods</label>
+                        <input type="text" id="communication-methods" name="communication-methods">
+                    </div>
+                    <div class="question-group">
+                        <label for="content-communication">Content of Communication</label>
+                        <textarea id="content-communication" name="content-communication"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="documentation-location">Documentation Location</label>
+                        <input type="text" id="documentation-location" name="documentation-location">
+                    </div>
+                    <div class="question-group">
+                        <label for="inter-departmental-frequency">Inter-departmental Frequency</label>
+                        <input type="text" id="inter-departmental-frequency" name="inter-departmental-frequency">
+                    </div>
+                    <div class="question-group">
+                        <label for="departments-communicated-with">Departments Communicated With</label>
+                        <input type="text" id="departments-communicated-with" name="departments-communicated-with">
+                    </div>
+                    <div class="question-group">
+                        <label for="responsible-role-inter-department">Responsible Role/Person for Inter-departmental Communication</label>
+                        <input type="text" id="responsible-role-inter-department" name="responsible-role-inter-department">
+                    </div>
+                    <div class="question-group">
+                        <label for="communication-methods-inter-department">Communication Methods</label>
+                        <input type="text" id="communication-methods-inter-department" name="communication-methods-inter-department">
+                    </div>
+                    <div class="question-group">
+                        <label for="content-communication-inter-department">Content of Communication</label>
+                        <textarea id="content-communication-inter-department" name="content-communication-inter-department"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="documentation-location-inter-department">Documentation Location</label>
+                        <input type="text" id="documentation-location-inter-department" name="documentation-location-inter-department">
+                    </div>
+                </div>
+                <button type="button" id="add-department-button" onclick="addDepartment()">Add</button>
+                <button type="button" onclick="saveDepartments()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Departments</h3>
+                <div id="saved-departments-list"></div>
+            </div>
+
+            <h2>Communication Tools and Platforms</h2>
+            <form id="communication-tools-form">
+                <div id="tools-editing-indicator" class="editing-indicator"></div>
+                <div id="tools-container">
+                    <div class="question-group">
+                        <label for="internal-tools">Communication Tool Name</label>
+                        <input type="text" id="internal-tools" name="internal-tools">
+                    </div>
+                    <div class="question-group">
+                        <label for="tool-details">Communication Tool Details</label>
+                        <textarea id="tool-details" name="tool-details"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-tools-button" onclick="addTool()">Add</button>
+                <button type="button" onclick="saveTools()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Communication Tools</h3>
+                <div id="saved-tools-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="executive-updates.js"></script>
+    <script src="departmental-communication.js"></script>
+    <script src="communication-tools.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govern Report</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .report-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+        .report-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .report-section {
+            margin-bottom: 30px;
+        }
+        .report-section h2 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        .report-subsection {
+            margin-bottom: 20px;
+        }
+        .report-subsection h3 {
+            background-color: #555;
+            color: #fff;
+            padding: 8px;
+        }
+        .report-subsection p {
+            padding: 5px 10px;
+            background-color: #f1f1f1;
+            border-left: 4px solid #333;
+            margin: 0 0 10px 0;
+        }
+        .action-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .action-buttons button {
+            padding: 10px 15px;
+            margin-left: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .action-buttons button:hover {
+            background-color: #0056b3;
+        }
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .report-container {
+                background-color: #ffffff !important;
+                border: none !important;
+            }
+            .action-buttons {
+                display: none !important;
+            }
+        }
+        #criticality-diagram {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        height: 500px;
+        border: 1px solid #000;
+    }
+
+    .criticality-section {
+        width: 30%;
+        border: 2px solid #000;
+        position: relative;
+        padding: 40px 10px 10px 10px;
+    }
+
+    .criticality-section.high-criticality {
+        background-color: #ffcccc;
+    }
+
+    .criticality-section.medium-criticality {
+        background-color: #fff3cd;
+    }
+
+    .criticality-section.low-criticality {
+        background-color: #ccffcc;
+    }
+
+    .criticality-section-label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .draggable-item {
+        width: auto;
+        min-width: 100px;
+        height: 30px;
+        margin: 5px 0;
+        line-height: 30px;
+        text-align: center;
+        cursor: move;
+        border: 1px solid #000; /* Added solid border */
+    }
+
+    .vendor-item {
+        background-color: #f0f0f0;
+        border: 1px solid #000; /* Added solid border */
+    }
+
+    .connector-item {
+        background-color: transparent;
+        border: 1px dashed #000;
+    }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <div class="action-buttons">
+            <button onclick="savePage()">Save</button>
+            <button onclick="window.print()">Print</button>
+        </div>
+        <div class="report-header">
+            <h1>Govern Report</h1>
+            <p>NIST CSF 2.0 - Govern</p>
+        </div>
+        <div class="report-section">
+            <h2>Organizational Context (GV.OC)</h2>
+            <div class="report-subsection">
+                <h3>GV.OC-01</h3>
+                <p>The organizational mission is understood and informs cybersecurity risk management</p>
+                <p id="organizational-mission-output"></p>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.OC-02</h3>
+                <p>Internal and external stakeholders are understood, and their needs and expectations regarding cybersecurity risk management are understood and considered</p>
+                <div id="internal-external-stakeholders-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.OC-03</h3>
+                <p>Legal, regulatory, and contractual requirements regarding cybersecurity - including privacy and civil liberties obligations - are understood and managed</p>
+                <div id="legal-requirements-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.OC-04</h3>
+                <p>Critical objectives, capabilities, and services that external stakeholders depend on or expect from the organization are understood and communicated</p>
+                <div id="critical-objectives-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.OC-05</h3>
+                <p>Outcomes, capabilities, and services that the organization depends on are understood and communicated</p>
+                <div id="dependencies-output"></div>
+            </div>
+        </div>
+        <div class="report-section">
+            <h2>Risk Management Strategy (GV.RM)</h2>
+            <div class="report-subsection">
+                <h3>GV.RM-01</h3>
+                <p>Risk management objectives are established and agreed to by organizational stakeholders</p>
+                <div id="risk-management-objectives-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RM-02</h3>
+                <p>Risk appetite and risk tolerance statements are established, communicated, and maintained</p>
+                <div id="risk-appetite-output"></div>
+            </div>            
+            <div class="report-subsection">
+                <h3>GV.RM-03</h3>
+                <p>Cybersecurity risk management activities and outcomes are included in enterprise risk management processes</p>
+                <div id="cybersecurity-risk-management-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RM-04</h3>
+                <p>Strategic direction that describes appropriate risk response options is established and communicated</p>
+                <div id="strategic-direction-output"></div>
+            </div>
+            
+            <div class="report-subsection">
+                <h3>GV.RM-05</h3>
+                <p>Lines of communication across the organization are established for cybersecurity risks, including risks from suppliers and other third parties</p>
+                <div id="saved-executive-updates-list"></div>
+                <div id="saved-departments-list"></div>
+                <div id="saved-tools-list"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RM-06</h3>
+                <p>A standardized method for calculating, documenting, categorizing, and prioritizing cybersecurity risks is established and communicated</p>
+                <div id="standardized-risk-methods-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RM-07</h3>
+                <p>Strategic opportunities (i.e., positive risks) are characterized and are included in organizational cybersecurity risk discussions</p>
+                <div id="strategic-opportunities-output"></div>
+            </div>
+        </div>
+        <div class="report-section">
+            <h2>Roles, Responsibilities, and Authorities (GV.RR)</h2>
+            <div class="report-subsection">
+                <h3>GV.RR-01</h3>
+                <p>Organizational leadership is responsible and accountable for cybersecurity risk and fosters a culture that is risk-aware, ethical, and continually improving</p>
+                <div id="gv-rr-01-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RR-02</h3>
+                <p>Roles, responsibilities, and authorities related to cybersecurity risk management are established, communicated, understood, and enforced</p>
+                <div>(Not available in demo)</div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RR-03</h3>
+                <p>Adequate resources are allocated commensurate with the cybersecurity risk strategy, roles, responsibilities, and policies</p>
+                <div id="resource-allocation-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.RR-04</h3>
+                <p>Cybersecurity is included in human resources practices</p>
+                <div id="cybersecurity-hr-output"></div>
+            </div>
+        </div>
+        <div class="report-section">
+            <h2>Policy (GV.PO)</h2>
+            <div class="report-subsection">
+                <h3>GV.PO-01</h3>
+                <p>Policy for managing cybersecurity risks is established based on organizational context, cybersecurity strategy, and priorities and is communicated and enforced</p>
+                <div id="cybersecurity-policy-output"></div>
+            </div>
+            <div class="report-subsection">
+                <h3>GV.PO-02</h3>
+                <p>Policy for managing cybersecurity risks is reviewed, updated, communicated, and enforced to reflect changes in requirements, threats, technology, and organizational mission</p>
+                <div id="gv-po-02-output"></div>
+            </div>
+        </div>
+        <div class="report-section">
+            <h2>Oversight (GV.OV)</h2>
+                <div class="report-subsection">
+                    <h3>GV.OV-01: Compliance and Oversight Adjustment</h3>
+                    <div id="gv-ov-01-output"></div>
+                </div>
+                <div class="report-subsection">
+                    <h3>GV.OV-02: Strategic Risk Management Review</h3>
+                    <div id="gv-ov-02-output"></div>
+                </div>
+                <div class="report-subsection">
+                    <h3>GV.OV-03: Performance and Metrics Evaluation</h3>
+                    <div id="gv-ov-03-output"></div>
+                </div>
+        </div>
+        <div class="report-section">
+            <h2>Cybersecurity Supply Chain Risk Management (GV.SC)</h2>
+            <div class="report-subsection">
+                <h3>GV.SC-04</h3>
+                <p>Suppliers are known and prioritized by criticality</p>
+                <div id="criticality-diagram">
+                    <div class="criticality-section high-criticality vendor-criticality-section" data-criticality="high">
+                        <div class="criticality-section-label">High Criticality</div>
+                    </div>
+                    <div class="criticality-section medium-criticality vendor-criticality-section" data-criticality="medium">
+                        <div class="criticality-section-label">Medium Criticality</div>
+                    </div>
+                    <div class="criticality-section low-criticality vendor-criticality-section" data-criticality="low">
+                        <div class="criticality-section-label">Low Criticality</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="index.js"></script>
+    <script src="vendor-criticality-display.js"></script>
+</body>
+</html>

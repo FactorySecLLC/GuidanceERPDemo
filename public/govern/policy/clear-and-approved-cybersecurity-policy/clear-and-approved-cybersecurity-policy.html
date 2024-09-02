@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear and Approved Cybersecurity Policy</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            font-weight: bold;
+        }
+        .question-group textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Clear and Approved Cybersecurity Policy</h2>
+            <form id="cybersecurity-policy-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <!-- Understanding and Communication of Cybersecurity Policy -->
+                    <h3>Understanding and Communication of Cybersecurity Policy</h3>
+                    <div class="question-group">
+                        <label for="simple-understanding">How do you ensure that your cybersecurity policy is simple and easy to understand for everyone in your factory?</label>
+                        <textarea id="simple-understanding" name="simple-understanding"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="share-policy">How often do you share or discuss the cybersecurity policy with your employees?</label>
+                        <textarea id="share-policy" name="share-policy"></textarea>
+                    </div>
+                    <!-- Regular Review of Cybersecurity Policies -->
+                    <h3>Regular Review of Cybersecurity Policies</h3>
+                    <div class="question-group">
+                        <label for="review-process">Can you describe the process you use to regularly check and update your cybersecurity policies and procedures?</label>
+                        <textarea id="review-process" name="review-process"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="ensure-relevance">How do you make sure that your cybersecurity policies are still relevant and effective for your factory's needs?</label>
+                        <textarea id="ensure-relevance" name="ensure-relevance"></textarea>
+                    </div>
+                    <!-- Senior Management Approval -->
+                    <h3>Senior Management Approval</h3>
+                    <div class="question-group">
+                        <label for="management-approval">Who in your management team needs to approve any changes or updates to the cybersecurity policy?</label>
+                        <textarea id="management-approval" name="management-approval"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="approval-documentation">How do you obtain this approval, and how is it documented?</label>
+                        <textarea id="approval-documentation" name="approval-documentation"></textarea>
+                    </div>
+                    <!-- Company-wide Communication -->
+                    <h3>Company-wide Communication</h3>
+                    <div class="question-group">
+                        <label for="inform-methods">What methods do you use to inform all your employees about the cybersecurity policies and any updates?</label>
+                        <textarea id="inform-methods" name="inform-methods"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="ensure-understanding">How do you ensure that every employee has received and understood the cybersecurity policy?</label>
+                        <textarea id="ensure-understanding" name="ensure-understanding"></textarea>
+                    </div>
+                    <!-- Acknowledgment of Policy -->
+                    <h3>Acknowledgment of Policy</h3>
+                    <div class="question-group">
+                        <label for="new-employees">What steps do you take to ensure new employees read and acknowledge the cybersecurity policy when they are hired?</label>
+                        <textarea id="new-employees" name="new-employees"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="annual-acknowledgment">How do you handle the acknowledgment of the cybersecurity policy on an annual basis or when updates are made?</label>
+                        <textarea id="annual-acknowledgment" name="annual-acknowledgment"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="saveCybersecurityPolicyData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Cybersecurity Policies</h3>
+                <div id="saved-policy-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="clear-and-approved-cybersecurity-policy.js"></script>
+</body>
+</html>

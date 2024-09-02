@@ -1,0 +1,36 @@
+{
+    "stakeholders": [
+        {
+            "type": "individual",
+            "internalExternal": "internal",
+            "name": "John Doe",
+            "email": "john.doe@example.com",
+            "phone": "123-456-7890",
+            "department": "IT",
+            "title": "CIO",
+            "notes": "Key decision-maker for IT investments.",
+            "objectives": "Ensure robust cybersecurity infrastructure.",
+            "capabilities": "Access to the latest cybersecurity tools.",
+            "services": "Incident response, threat intelligence.",
+            "expectations": "High standards for data protection.",
+            "concerns": "Compliance with GDPR and CCPA.",
+            "support": "Regular training and updates on threats."
+        },
+        {
+            "type": "group",
+            "internalExternal": "external",
+            "name": "External Partners",
+            "email": "partners@example.com",
+            "phone": "987-654-3210",
+            "department": "",
+            "title": "",
+            "notes": "Require secure communication channels.",
+            "objectives": "Seamless integration with our systems.",
+            "capabilities": "Secure APIs and data exchange.",
+            "services": "Third-party risk assessments.",
+            "expectations": "Transparent security policies.",
+            "concerns": "Third-party breaches.",
+            "support": "Assistance with compliance audits."
+        }
+    ]
+}

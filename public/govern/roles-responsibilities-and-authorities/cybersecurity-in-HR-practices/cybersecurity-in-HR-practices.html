@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity in HR Practices</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            font-weight: bold;
+        }
+        .question-group textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Cybersecurity in HR Practices</h2>
+            <form id="cybersecurity-hr-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <!-- Questions -->
+                    <div class="question-group">
+                        <label for="check-cybersecurity-knowledge">Do you check new hires' cybersecurity knowledge during the hiring process?</label>
+                        <textarea id="check-cybersecurity-knowledge" name="check-cybersecurity-knowledge"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="onboarding-training">Is cybersecurity training included in the onboarding process?</label>
+                        <textarea id="onboarding-training" name="onboarding-training"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="notify-changes">Do you notify your team about changes in cybersecurity roles?</label>
+                        <textarea id="notify-changes" name="notify-changes"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="revoke-access">Do you revoke access to company systems and data when an employee leaves?</label>
+                        <textarea id="revoke-access" name="revoke-access"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="prefer-cybersecurity-knowledge">Do you prefer to hire people with cybersecurity knowledge?</label>
+                        <textarea id="prefer-cybersecurity-knowledge" name="prefer-cybersecurity-knowledge"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="ongoing-training">Do you provide ongoing cybersecurity training for employees?</label>
+                        <textarea id="ongoing-training" name="ongoing-training"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="consider-knowledge">Is cybersecurity knowledge considered in retention and promotion decisions?</label>
+                        <textarea id="consider-knowledge" name="consider-knowledge"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="background-checks">Do you conduct background checks before hiring for sensitive roles?</label>
+                        <textarea id="background-checks" name="background-checks"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="repeat-checks">Do you repeat background checks periodically for sensitive roles?</label>
+                        <textarea id="repeat-checks" name="repeat-checks"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="aware-policies">Are all employees aware of and do they follow your security policies?</label>
+                        <textarea id="aware-policies" name="aware-policies"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="enforce-policies">Do you enforce your security policies?</label>
+                        <textarea id="enforce-policies" name="enforce-policies"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="saveCybersecurityHRData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Cybersecurity HR Practices</h3>
+                <div id="saved-hr-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="cybersecurity-in-HR-practices.js"></script>
+</body>
+</html>

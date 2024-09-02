@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standardized Risk Methods</title>
+    <link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Standardized Risk Methods</h2>
+            <form id="section-form">
+                <div class="question-group">
+                    <label for="standardized-risk-methods">What methods is the organization using for calculating, documenting, categorizing, and prioritizing cybersecurity risks?</label>
+                    <textarea id="standardized-risk-methods" name="standardized-risk-methods"></textarea>
+                </div>
+                <button type="button" onclick="saveStandardizedRiskMethods()">Save</button>
+            </form>
+            <div class="saved-data">
+                <label for="saved-standardized-risk-methods">Saved Methods</label>
+                <div id="saved-standardized-risk-methods-text" class="saved-standardized-risk-methods-text"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="standardized-risk-methods.js"></script>
+</body>
+</html>

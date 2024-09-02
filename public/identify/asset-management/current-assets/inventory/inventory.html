@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .asset-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .asset-info {
+            flex-grow: 1;
+        }
+        .asset-buttons {
+            margin-left: 10px;
+        }
+        .asset-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .valuation-method-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .valuation-method-section label {
+            margin-right: 10px;
+        }
+        .valuation-method-section button {
+            margin-left: 10px;
+        }
+        .question-group {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .bom-quantity-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .bom-quantity-item label {
+            margin-right: 10px;
+        }
+        .bom-equation {
+            margin-left: 10px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Inventory</h2>
+
+            <div class="valuation-method-section">
+                <label for="valuation-method">Inventory Valuation Method</label>
+                <select id="valuation-method" name="valuation-method">
+                    <option value="">--Select Valuation Method--</option>
+                    <option value="FIFO">First-in-first-out (FIFO)</option>
+                    <option value="LIFO">Last-in-first-out (LIFO)</option>
+                    <option value="Weighted Average">Weighted Average</option>
+                    <option value="Specific Identification">Specific Identification</option>
+                </select>
+                <button type="button" onclick="saveValuationMethod()">Save Valuation Method</button>
+                <div id="saved-valuation-method"></div>
+            </div>
+
+            <form id="inventory-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+
+                <div id="inventory-container">
+                    <div class="question-group">
+                        <label for="inventory-name">Inventory Item Name</label>
+                        <input type="text" id="inventory-name" name="inventory-name">
+                    </div>
+
+                    <div class="question-group">
+                        <label for="inventory-total-cost">Inventory Total Cost</label>
+                        <input type="text" id="inventory-total-cost" name="inventory-total-cost">
+                    </div>
+
+                    <div class="question-group">
+                        <label for="cost-date-checked">Inventory Total Cost Date Checked</label>
+                        <input type="date" id="cost-date-checked" name="cost-date-checked">
+                    </div>
+
+                    <div class="question-group">
+                        <label for="inventory-notes">Notes</label>
+                        <textarea id="inventory-notes" name="inventory-notes"></textarea>
+                    </div>
+
+                    <!-- Bill of Materials Selection -->
+                    <div class="question-group" id="bill-of-materials-section">
+                        <label>Bill of Materials</label>
+                        <div id="bom-dropdowns-container">
+                            <!-- Dropdowns for selecting BOM items will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity Input for Selected BOM Items -->
+                    <div class="question-group" id="bom-quantity-section">
+                        <label for="bom-quantities">Bill of Materials Quantities</label>
+                        <div id="bom-quantities-container">
+                            <!-- Inputs for BOM quantities will be dynamically added here -->
+                        </div>
+                        <button type="button" onclick="calculateEstimatedBOMCost()">Calculate Estimated Total Bill of Materials Cost</button>
+                    </div>
+
+                    <!-- Estimated Bill of Materials Cost Section -->
+                    <div class="question-group">
+                        <label for="estimated-bom-cost">Estimated Bill of Materials Cost</label>
+                        <div id="estimated-bom-cost">Estimated Bill of Materials Cost: $0.00</div>
+                    </div>
+                </div>
+
+                <button type="button" id="add-button" onclick="addInventory()">Add New Inventory</button>
+                <button type="button" onclick="saveInventoryData()">Save</button>
+            </form>
+
+            <div class="saved-data">
+                <h3>Saved Inventory</h3>
+                <div id="saved-inventory-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../../../navigation.js"></script>
+    <script src="inventory.js"></script>
+</body>
+</html>

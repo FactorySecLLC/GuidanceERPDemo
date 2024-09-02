@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improvement</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Identify</h2>
+            <ul>
+                <li><a href="asset-management.html">Asset Management</a></li>
+                <li><a href="risk-assessment.html">Risk Assessment</a></li>
+                <li><a href="improvement.html">Improvement</a></li>
+            </ul>
+            <a href="../index.html" class="nav-item">Back to Main</a>
+        </nav>
+        <main class="content">
+            <div id="section-content" class="content-section">
+                <h2>Improvement</h2>
+                <form id="section-form">
+                    <div class="question-group">
+                        <label for="improvement" class="question-label">Improvement</label>
+                        <textarea id="improvement" name="improvement" class="question-textarea"></textarea>
+                        <button type="button" class="save-button" onclick="saveData('improvement')">Save</button>
+                    </div>
+                </form>
+                <div class="saved-data" id="saved-data"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../scripts.js"></script>
+</body>
+</html>

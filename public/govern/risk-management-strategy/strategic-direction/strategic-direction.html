@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Direction</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .direction-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .direction-info {
+            flex-grow: 1;
+        }
+        .direction-buttons {
+            margin-left: 10px;
+        }
+        .direction-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Strategic Direction</h2>
+            <form id="strategic-direction-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="directions-container">
+                    <div class="question-group">
+                        <label for="data-types">Main Types of Data</label>
+                        <textarea id="data-types" name="data-types"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="risk-decisions">Risk Decisions</label>
+                        <textarea id="risk-decisions" name="risk-decisions"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="risk-comfort">Risk Comfort</label>
+                        <textarea id="risk-comfort" name="risk-comfort"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="protect-data">Always Protect</label>
+                        <textarea id="protect-data" name="protect-data"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="insurance-need">Insurance Need</label>
+                        <textarea id="insurance-need" name="insurance-need"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="insurance-use">Insurance Use</label>
+                        <textarea id="insurance-use" name="insurance-use"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="policy-look">Policy Look</label>
+                        <textarea id="policy-look" name="policy-look"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="policy-concerns">Policy Concerns</label>
+                        <textarea id="policy-concerns" name="policy-concerns"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="responsibilities">Responsibilities</label>
+                        <textarea id="responsibilities" name="responsibilities"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="decide-okay">Decide Okay</label>
+                        <textarea id="decide-okay" name="decide-okay"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="roles-understand">Roles Understand</label>
+                        <textarea id="roles-understand" name="roles-understand"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="shared-examples">Shared Examples</label>
+                        <textarea id="shared-examples" name="shared-examples"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="following-standards">Following Standards</label>
+                        <textarea id="following-standards" name="following-standards"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="checks">Checks</label>
+                        <textarea id="checks" name="checks"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addDirection()">Add</button>
+                <button type="button" onclick="saveStrategicDirectionData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Strategic Directions</h3>
+                <div id="saved-directions-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="strategic-direction.js"></script>
+</body>
+</html>

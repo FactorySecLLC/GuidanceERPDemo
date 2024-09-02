@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Technology and Operational Technology Assets</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .asset-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .asset-info {
+            flex-grow: 1;
+        }
+        .asset-buttons {
+            margin-left: 10px;
+        }
+        .asset-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>IT, IoT, and OT Assets</h2>
+            <form id="assets-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="assets-container">
+                    <!-- Existing fields -->
+                    <div class="question-group">
+                        <label for="model-name">Model Name</label>
+                        <input type="text" id="model-name" name="model-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="asset-tag">Asset Tag</label>
+                        <input type="text" id="asset-tag" name="asset-tag">
+                    </div>
+                    <div class="question-group">
+                        <label for="serial-id">Serial ID</label>
+                        <input type="text" id="serial-id" name="serial-id">
+                    </div>
+                    <div class="question-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location">
+                    </div>
+                    <!-- Newly added Purchase Cost field -->
+                    <div class="question-group">
+                        <label for="purchase-cost">Purchase Cost</label>
+                        <input type="text" id="purchase-cost" name="purchase-cost">
+                    </div>
+                    <!-- Updated fields -->
+                    <div class="question-group">
+                        <label for="purchase-date">Purchase Date</label>
+                        <input type="date" id="purchase-date" name="purchase-date">
+                    </div>
+                    <div class="question-group">
+                        <label for="depreciated-value">Estimated Depreciated Value</label>
+                        <input type="text" id="depreciated-value" name="depreciated-value">
+                    </div>
+                    <div class="question-group">
+                        <label for="depreciated-value-date">Estimated Depreciated Value Date</label>
+                        <input type="date" id="depreciated-value-date" name="depreciated-value-date">
+                    </div>
+                    <!-- Additional fields -->
+                    <div class="question-group">
+                        <label for="asset-owner">Asset Owner</label>
+                        <input type="text" id="asset-owner" name="asset-owner">
+                    </div>
+                    <div class="question-group">
+                        <label for="mac-address">MAC Address</label>
+                        <input type="text" id="mac-address" name="mac-address">
+                    </div>
+                    <div class="question-group">
+                        <label for="warranty">Warranty</label>
+                        <input type="text" id="warranty" name="warranty">
+                    </div>
+                    <div class="question-group">
+                        <label for="operating-system">Operating System</label>
+                        <input type="text" id="operating-system" name="operating-system">
+                    </div>
+                    <div class="question-group">
+                        <label for="data-sensitivity-level">Data Sensitivity Level</label>
+                        <input type="text" id="data-sensitivity-level" name="data-sensitivity-level">
+                    </div>
+                    <div class="question-group">
+                        <label for="access-control-details">Access Control Details</label>
+                        <input type="text" id="access-control-details" name="access-control-details">
+                    </div>
+                    <div class="question-group">
+                        <label for="backup-status">Backup Status</label>
+                        <input type="text" id="backup-status" name="backup-status">
+                    </div>
+                    <div class="question-group">
+                        <label for="incident-history">Information Security Incident History</label>
+                        <textarea id="incident-history" name="incident-history"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="software-installed">Software Installed</label>
+                        <textarea id="software-installed" name="software-installed"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="update-information">Update Information</label>
+                        <textarea id="update-information" name="update-information"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="firmware-version">Firmware Version (for OT)</label>
+                        <input type="text" id="firmware-version" name="firmware-version">
+                    </div>
+                    <div class="question-group">
+                        <label for="encryption-transit">Encryption in Transit Information</label>
+                        <input type="text" id="encryption-transit" name="encryption-transit">
+                    </div>
+                    <div class="question-group">
+                        <label for="encryption-rest">Encryption at Rest Information</label>
+                        <input type="text" id="encryption-rest" name="encryption-rest">
+                    </div>
+                    <div class="question-group">
+                        <label for="eol-status">End of Life Status</label>
+                        <input type="text" id="eol-status" name="eol-status">
+                    </div>
+                    <div class="question-group">
+                        <label for="known-vulnerabilities">Known Vulnerabilities</label>
+                        <input type="text" id="known-vulnerabilities" name="known-vulnerabilities">
+                    </div>
+                    <div class="question-group">
+                        <label for="vulnerabilities-last-checked">Known Vulnerabilities Last Date Checked</label>
+                        <input type="date" id="vulnerabilities-last-checked" name="vulnerabilities-last-checked">
+                    </div>                    
+                    <div class="question-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" name="notes"></textarea>
+                    </div>                
+                </div>
+                <button type="button" id="add-button" onclick="addAsset()">Add</button>
+                <button type="button" onclick="saveAssetsData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved IT, IoT, and OT Assets</h3>
+                <div id="saved-assets-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="it-ot-assets.js"></script>
+</body>
+</html>

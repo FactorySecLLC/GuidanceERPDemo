@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Criticality Diagram</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        #criticality-diagram {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+
+        .criticality-section {
+            width: 30%;
+            border: 2px solid #000;
+            position: relative;
+            padding: 40px 10px 10px 10px;
+        }
+
+        .criticality-section.high-criticality {
+            background-color: #ffcccc;
+        }
+
+        .criticality-section.medium-criticality {
+            background-color: #fff3cd;
+        }
+
+        .criticality-section.low-criticality {
+            background-color: #ccffcc;
+        }
+
+        .criticality-section-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .draggable-item {
+            width: auto;
+            min-width: 100px;
+            height: 30px;
+            margin: 5px 0;
+            line-height: 30px;
+            text-align: center;
+            cursor: move;
+            border: 1px solid #000; /* Added solid border */
+        }
+
+        .vendor-item {
+            background-color: #f0f0f0;
+            border: 1px solid #000; /* Added solid border */
+        }
+
+        .connector-item {
+            background-color: transparent;
+            border: 1px dashed #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Vendor Criticality Prioritization Diagram</h2>
+            <div id="criticality-diagram">
+                <div class="criticality-section high-criticality vendor-criticality-section" data-criticality="high">
+                    <div class="criticality-section-label">High Criticality</div>
+                </div>
+                <div class="criticality-section medium-criticality vendor-criticality-section" data-criticality="medium">
+                    <div class="criticality-section-label">Medium Criticality</div>
+                </div>
+                <div class="criticality-section low-criticality vendor-criticality-section" data-criticality="low">
+                    <div class="criticality-section-label">Low Criticality</div>
+                </div>
+            </div>
+            <button onclick="saveVendorcriticalityDiagram()">Save Criticality Diagram</button>
+
+            <div class="saved-data">
+                <h3>Saved Vendor Criticality Items</h3>
+                <div id="saved-vendor-criticality-items-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="vendor-criticality.js"></script>
+</body>
+
+</html>

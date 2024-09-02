@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Accountability and Risk Culture</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 15px;
+        }
+        .question-group label {
+            font-weight: bold;
+        }
+        .question-group textarea {
+            width: 100%;
+            height: 60px;
+            resize: vertical;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Leadership Accountability and Risk Culture</h2>
+            <form id="leadership-accountability-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <!-- Roles and Responsibilities Agreement -->
+                    <div class="question-group">
+                        <label for="roles-responsibilities-agreement">Can you describe how your organization's leadership has agreed on their roles and responsibilities in developing, implementing, and assessing the cybersecurity strategy?</label>
+                        <textarea id="roles-responsibilities-agreement" name="roles-responsibilities-agreement"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="roles-responsibilities-review-frequency">How often do leaders review and update their roles and responsibilities related to cybersecurity?</label>
+                        <textarea id="roles-responsibilities-review-frequency" name="roles-responsibilities-review-frequency"></textarea>
+                    </div>
+                    <!-- Promoting a Secure and Ethical Culture -->
+                    <div class="question-group">
+                        <label for="secure-ethical-culture-communication">How do your leaders communicate their expectations regarding a secure and ethical culture within the organization?</label>
+                        <textarea id="secure-ethical-culture-communication" name="secure-ethical-culture-communication"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="cybersecurity-risk-examples">Can you provide examples of how current events have been used to highlight positive or negative examples of cybersecurity risk management within your organization?</label>
+                        <textarea id="cybersecurity-risk-examples" name="cybersecurity-risk-examples"></textarea>
+                    </div>
+                    <!-- Cybersecurity Risk Strategy Management -->
+                    <div class="question-group">
+                        <label for="risk-strategy-management">Who within your organization is responsible for maintaining and reviewing the comprehensive cybersecurity risk strategy?</label>
+                        <textarea id="risk-strategy-management" name="risk-strategy-management"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="risk-strategy-review-process">How is the cybersecurity risk strategy reviewed and updated, and what triggers these reviews (e.g., annually, after major events)?</label>
+                        <textarea id="risk-strategy-review-process" name="risk-strategy-review-process"></textarea>
+                    </div>
+                    <!-- Review and Coordination -->
+                    <div class="question-group">
+                        <label for="review-coordination-process">What processes are in place to conduct reviews ensuring adequate authority and coordination among those responsible for managing cybersecurity risk?</label>
+                        <textarea id="review-coordination-process" name="review-coordination-process"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="review-frequency-criteria">How often are these reviews conducted, and what criteria are used to assess the adequacy of authority and coordination?</label>
+                        <textarea id="review-frequency-criteria" name="review-frequency-criteria"></textarea>
+                    </div>
+                </div>
+                <button type="button" onclick="saveLeadershipAccountabilityData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Leadership Accountability Data</h3>
+                <div id="saved-leadership-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="leadership-accountability-and-risk-culture.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Assets</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .asset-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .asset-info {
+            flex-grow: 1;
+        }
+        .asset-buttons {
+            margin-left: 10px;
+        }
+        .asset-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Software Assets</h2>
+            <form id="assets-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="assets-container">
+                    <div class="question-group">
+                        <label for="software-name">Software Name</label>
+                        <input type="text" id="software-name" name="software-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="software-description">Software Description</label>
+                        <textarea id="software-description" name="software-description"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="update-process">What’s the update process for this software?</label>
+                        <textarea id="update-process" name="update-process"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="installed-version">Current Installed Version</label>
+                        <input type="text" id="installed-version" name="installed-version">
+                    </div>
+                    <div class="question-group">
+                        <label for="software-manager">Who is in charge of managing this software?</label>
+                        <input type="text" id="software-manager" name="software-manager">
+                    </div>
+                    <div class="question-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" name="notes"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addAsset()">Add</button>
+                <button type="button" onclick="saveAssetsData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Software Assets</h3>
+                <div id="saved-assets-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../../navigation.js"></script>
+    <script src="software-assets.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendors</title>
+    <link rel="stylesheet" href="../../../../styles.css">
+    <style>
+        .question-group, .add-buttons {
+            display: none;
+        }
+        .supplier-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .supplier-info {
+            flex-grow: 1;
+        }
+        .supplier-buttons {
+            margin-left: 10px;
+        }
+        .supplier-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .supplier-contact, .pen-testing-info {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Vendors</h2>
+            <form id="risk-management-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="questions-container">
+                    <h3 class="question-group">Vendor Information</h3>
+                    <div class="question-group">
+                        <label for="supplier-name">Vendor Name</label>
+                        <input type="text" id="supplier-name" name="supplier-name">
+                    </div>
+                    <div class="question-group">
+                        <div id="supplier-contacts-container"></div>
+                        <button type="button" class="add-buttons" onclick="addSupplierContact()">Add Vendor Contact</button>
+                    </div>
+                    <h3 class="question-group">Products/Services Provided</h3>
+                    <div class="question-group">
+                        <label for="products-services">Products/Services</label>
+                        <textarea id="products-services" name="products-services"></textarea>
+                    </div>
+                    <h3 class="question-group">Additional Notes</h3>
+                    <div class="question-group">
+                        <label for="additional-notes">Any other relevant information</label>
+                        <textarea id="additional-notes" name="additional-notes"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addSupplier()">Add</button>
+                <button type="button" onclick="saveSupplierData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Vendors</h3>
+                <div id="saved-supplier-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="vendors.js"></script>
+</body>
+</html>

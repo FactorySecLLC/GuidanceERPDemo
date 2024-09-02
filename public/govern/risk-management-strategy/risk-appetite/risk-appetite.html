@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Appetite</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .question-group {
+            margin-bottom: 20px;
+        }
+        .question-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .question-group input,
+        .question-group textarea,
+        .question-group select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .saved-data {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Risk Appetite</h2>
+            <form id="risk-form">
+                <!-- Section 1: General Risk Appetite Levels -->
+                <div class="question-group">
+                    <label for="overall-risk-appetite">What is your organization's overall risk appetite level?</label>
+                    <select id="overall-risk-appetite" name="overall-risk-appetite">
+                        <option value="Very Low">Very Low</option>
+                        <option value="Low">Low</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="High">High</option>
+                        <option value="Very High">Very High</option>
+                    </select>
+                </div>
+
+                <!-- Section 2: Risk Dimensions -->
+                <!-- Financial Impact -->
+                <div class="question-group">
+                    <label for="financial-impact">What is the maximum acceptable financial loss per incident?</label>
+                    <input type="range" id="financial-impact" name="financial-impact" min="0" max="1000000" step="1000">
+                    <span id="financial-impact-value">$0</span>
+                </div>
+                <div class="question-group">
+                    <label for="financial-rationale">Provide a brief rationale for your chosen financial impact tolerance.</label>
+                    <textarea id="financial-rationale" name="financial-rationale"></textarea>
+                </div>
+
+                <!-- Operational Impact -->
+                <div class="question-group">
+                    <label for="operational-impact">What is the maximum acceptable operational downtime per incident?</label>
+                    <select id="operational-impact" name="operational-impact">
+                        <option value="0 hours">0 hours</option>
+                        <option value="1-2 hours">1-2 hours</option>
+                        <option value="3-4 hours">3-4 hours</option>
+                        <option value="5-8 hours">5-8 hours</option>
+                        <option value=">8 hours">>8 hours</option>
+                    </select>
+                </div>
+                <div class="question-group">
+                    <label for="operational-rationale">Provide a brief rationale for your chosen operational impact tolerance.</label>
+                    <textarea id="operational-rationale" name="operational-rationale"></textarea>
+                </div>
+
+                <!-- Reputational Impact -->
+                <div class="question-group">
+                    <label for="reputational-impact">What level of reputational damage is acceptable?</label>
+                    <select id="reputational-impact" name="reputational-impact">
+                        <option value="None">None</option>
+                        <option value="Minimal">Minimal</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Significant">Significant</option>
+                        <option value="Major">Major</option>
+                    </select>
+                </div>
+                <div class="question-group">
+                    <label for="reputational-rationale">Provide a brief rationale for your chosen reputational impact tolerance.</label>
+                    <textarea id="reputational-rationale" name="reputational-rationale"></textarea>
+                </div>
+
+                <!-- Regulatory Impact -->
+                <div class="question-group">
+                    <label for="regulatory-impact">What level of regulatory non-compliance fines is acceptable?</label>
+                    <input type="range" id="regulatory-impact" name="regulatory-impact" min="0" max="100000" step="1000">
+                    <span id="regulatory-impact-value">$0</span>
+                </div>
+                <div class="question-group">
+                    <label for="regulatory-rationale">Provide a brief rationale for your chosen regulatory impact tolerance.</label>
+                    <textarea id="regulatory-rationale" name="regulatory-rationale"></textarea>
+                </div>
+
+                <button type="button" onclick="saveRiskData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Risk Appetites</h3>
+                <div id="saved-risk-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="risk-appetite.js"></script>
+</body>
+</html>

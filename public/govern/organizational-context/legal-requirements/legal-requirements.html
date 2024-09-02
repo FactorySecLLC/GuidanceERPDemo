@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal, Regulatory, and Contractual Requirements</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .requirement-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .requirement-info {
+            flex-grow: 1;
+        }
+        .requirement-buttons {
+            margin-left: 10px;
+        }
+        .requirement-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Legal, Regulatory, and Contractual Requirements</h2>
+            <form id="legal-requirements-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="requirements-container">
+                    <div class="question-group">
+                        <label for="law-name">Name of Law/Regulation/Contract</label>
+                        <input type="text" id="law-name" name="law-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="notes">Compliance Notes</label>
+                        <textarea id="notes" name="notes"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="department">Responsible Department</label>
+                        <input type="text" id="department" name="department">
+                    </div>
+                    <div class="question-group">
+                        <label for="links">Relevant Links</label>
+                        <div id="links-container">
+                            <button type="button" id="add-link-button" onclick="addLink()">Add Link</button>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label for="contacts">Related Contacts</label>
+                        <div id="contacts-container">
+                            <button type="button" id="add-contact-button" onclick="addContact()">Add Contact</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addRequirement()">Add</button>
+                <button type="button" onclick="saveLegalRequirementsData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Legal Requirements</h3>
+                <div id="saved-requirements-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="legal-requirements.js"></script>
+</body>
+</html>

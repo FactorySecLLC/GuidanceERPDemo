@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stakeholders</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .stakeholder-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .stakeholder-info {
+            flex-grow: 1;
+        }
+        .stakeholder-buttons {
+            margin-left: 10px;
+        }
+        .stakeholder-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Stakeholders</h2>
+            <form id="stakeholders-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="stakeholders-container">
+                    <div class="question-group">
+                        <label for="stakeholder-type">Is this stakeholder an individual or a group?</label>
+                        <select id="stakeholder-type" name="stakeholder-type" onchange="toggleStakeholderFields()">
+                            <option value="individual">Individual</option>
+                            <option value="group">Group</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-internal-external">Is this an internal or external stakeholder?</label>
+                        <select id="stakeholder-internal-external" name="stakeholder-internal-external">
+                            <option value="internal">Internal</option>
+                            <option value="external">External</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-name">Stakeholder Name</label>
+                        <input type="text" id="stakeholder-name" name="stakeholder-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-email">Stakeholder Email</label>
+                        <input type="email" id="stakeholder-email" name="stakeholder-email">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-phone">Phone Number</label>
+                        <input type="text" id="stakeholder-phone" name="stakeholder-phone">
+                    </div>
+                    <div class="question-group individual-only">
+                        <label for="stakeholder-department">Department</label>
+                        <input type="text" id="stakeholder-department" name="stakeholder-department">
+                    </div>
+                    <div class="question-group individual-only">
+                        <label for="stakeholder-title">Job Title</label>
+                        <input type="text" id="stakeholder-title" name="stakeholder-title">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-notes">Additional Notes</label>
+                        <textarea id="stakeholder-notes" name="stakeholder-notes"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-objectives">What are the critical objectives that this stakeholder expects our organization to achieve?</label>
+                        <textarea id="stakeholder-objectives" name="stakeholder-objectives"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-capabilities">What are the key capabilities that this stakeholder relies on from our organization to achieve their goals?</label>
+                        <textarea id="stakeholder-capabilities" name="stakeholder-capabilities"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-services">What are the specific services provided by our organization that this stakeholder depends on?</label>
+                        <textarea id="stakeholder-services" name="stakeholder-services"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-expectations">What are this stakeholder's expectations regarding cybersecurity?</label>
+                        <textarea id="stakeholder-expectations" name="stakeholder-expectations"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-concerns">What are the stakeholder's primary cybersecurity concerns and needs to ensure that the organization effectively protects sensitive information and meets regulatory requirements?</label>
+                        <textarea id="stakeholder-concerns" name="stakeholder-concerns"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-support">What specific resources or support does the stakeholder need from the organization to feel confident in its cybersecurity measures, and how should these needs be prioritized?</label>
+                        <textarea id="stakeholder-support" name="stakeholder-support"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addStakeholder()">Add</button>
+                <button type="button" onclick="saveStakeholdersData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Stakeholders</h3>
+                <div id="saved-stakeholders-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="stakeholders.js"></script>
+</body>
+</html>

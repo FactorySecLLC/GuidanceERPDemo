@@ -1,0 +1,28 @@
+{
+    "dependencies": [
+      {
+        "resource-name": "Server A",
+        "resource-function": "Web Hosting",
+        "resource-critical": "Yes",
+        "contact-name": "John Doe",
+        "contact-email": "john.doe@example.com",
+        "contact-department": "IT",
+        "contact-title": "System Administrator",
+        "contact-relevance": "Primary",
+        "stakeholder-name": "Jane Smith",
+        "stakeholder-email": "jane.smith@example.com",
+        "stakeholder-department": "Marketing",
+        "stakeholder-title": "Manager",
+        "stakeholder-relevance": "Secondary",
+        "report-frequency": "Monthly",
+        "report-channel": "Email",
+        "report-topics": "Performance, Security",
+        "report-communicator-name": "Mike Johnson",
+        "report-communicator-email": "mike.johnson@example.com",
+        "report-communicator-department": "IT",
+        "report-communicator-title": "Analyst",
+        "emergency-procedure": "Contact IT support immediately"
+      }
+    ]
+  }
+  

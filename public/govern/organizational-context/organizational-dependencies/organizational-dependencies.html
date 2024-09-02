@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Dependencies</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .dependency-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .dependency-info {
+            flex-grow: 1;
+        }
+        .dependency-buttons {
+            margin-left: 10px;
+        }
+        .dependency-buttons button {
+            margin-left: 5px;
+        }
+        .editing-indicator {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .question-group {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <!-- Navigation will be loaded here by navigation.js -->
+        </nav>
+        <main class="content" id="main-content">
+            <h2>Organizational Dependencies</h2>
+            <form id="dependencies-form">
+                <div id="editing-indicator" class="editing-indicator"></div>
+                <div id="dependencies-container">
+                    <div class="question-group">
+                        <label for="resource-name">Resource Name</label>
+                        <input type="text" id="resource-name" name="resource-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="resource-function">Resource Business Function</label>
+                        <input type="text" id="resource-function" name="resource-function">
+                    </div>
+                    <div class="question-group">
+                        <label for="resource-critical">Critical Point of Failure?</label>
+                        <select id="resource-critical" name="resource-critical">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-name">Contact Name for Resource</label>
+                        <input type="text" id="contact-name" name="contact-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-email">Contact Email for Resource</label>
+                        <input type="email" id="contact-email" name="contact-email">
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-department">Contact Department for Resource</label>
+                        <input type="text" id="contact-department" name="contact-department">
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-title">Contact Job Title for Resource</label>
+                        <input type="text" id="contact-title" name="contact-title">
+                    </div>
+                    <div class="question-group">
+                        <label for="contact-relevance">Contact Relevance to Resource</label>
+                        <textarea id="contact-relevance" name="contact-relevance"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-name">Resource Stakeholder Name</label>
+                        <input type="text" id="stakeholder-name" name="stakeholder-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-email">Resource Stakeholder Email</label>
+                        <input type="email" id="stakeholder-email" name="stakeholder-email">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-department">Resource Stakeholder Department</label>
+                        <input type="text" id="stakeholder-department" name="stakeholder-department">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-title">Resource Stakeholder Job Title</label>
+                        <input type="text" id="stakeholder-title" name="stakeholder-title">
+                    </div>
+                    <div class="question-group">
+                        <label for="stakeholder-relevance">Stakeholder Relevance to Resource</label>
+                        <textarea id="stakeholder-relevance" name="stakeholder-relevance"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="report-frequency">Resource Regular Status Report Communication Frequency</label>
+                        <input type="text" id="report-frequency" name="report-frequency">
+                    </div>
+                    <div class="question-group">
+                        <label for="report-channel">Resource Regular Status Report Communication Channel(s)</label>
+                        <input type="text" id="report-channel" name="report-channel">
+                    </div>
+                    <div class="question-group">
+                        <label for="report-topics">Resource Regular Status Report Communication Content Topics</label>
+                        <textarea id="report-topics" name="report-topics"></textarea>
+                    </div>
+                    <div class="question-group">
+                        <label for="report-communicator-name">Resource Regular Status Report Communicator Name</label>
+                        <input type="text" id="report-communicator-name" name="report-communicator-name">
+                    </div>
+                    <div class="question-group">
+                        <label for="report-communicator-email">Resource Regular Status Report Communicator Email</label>
+                        <input type="email" id="report-communicator-email" name="report-communicator-email">
+                    </div>
+                    <div class="question-group">
+                        <label for="report-communicator-department">Resource Regular Status Report Communicator Department</label>
+                        <input type="text" id="report-communicator-department" name="report-communicator-department">
+                    </div>
+                    <div class="question-group">
+                        <label for="report-communicator-title">Resource Regular Status Report Communicator Job Title</label>
+                        <input type="text" id="report-communicator-title" name="report-communicator-title">
+                    </div>
+                    <div class="question-group">
+                        <label for="emergency-procedure">Resource Emergency Procedure Information</label>
+                        <textarea id="emergency-procedure" name="emergency-procedure"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="add-button" onclick="addDependency()">Add</button>
+                <button type="button" onclick="saveDependenciesData()">Save</button>
+            </form>
+            <div class="saved-data">
+                <h3>Saved Dependencies</h3>
+                <div id="saved-dependencies-list"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../../../navigation.js"></script>
+    <script src="organizational-dependencies.js"></script>
+</body>
+</html>
