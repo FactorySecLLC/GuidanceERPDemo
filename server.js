@@ -185,7 +185,7 @@ app.post('/admin-panel-secure/login', (req, res) => {
     // Introduce a delay to simulate processing time
     setTimeout(() => {
         res.redirect('/admin-panel-secure'); // Redirect back to the login page after the delay
-    }, 86400000); // Delay time in seconds - 1000 equals 1 second here.
+    }, 2000); // Delay time in seconds - 1000 equals 1 second here.
 });
 
 
