@@ -36,7 +36,7 @@ const dbUrl = `http://${process.env.COUCHDB_USER}:${process.env.COUCHDB_PASSWORD
 const couch = nano(dbUrl);
 
 // Connect to CouchDB and create a database if it doesn't exist
-const dbName = 'gvid-db';
+const dbName = 'your-database-name-goes-here';
 const db = couch.use(dbName);
 
 couch.db.create(dbName, (err) => {
